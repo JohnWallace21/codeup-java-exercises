@@ -33,9 +33,13 @@ public class Input {
     }
 
     public int getInt() {
+        try {
             return Integer.valueOf(scan.next());
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter an interger");
+            return getInt();
         }
-
+    }
 
     public int getInt(String prompt) {
         System.out.println(prompt);
@@ -61,7 +65,7 @@ public class Input {
         try {
             return Double.valueOf(scan.next());
         } catch (NumberFormatException e) {
-            System.out.println("Please a valid number!");
+            System.out.println("Please enter a double");
             return getDouble();
         }
     }
@@ -85,12 +89,19 @@ public class Input {
         System.out.println(prompt);
         return getDouble(min, max);
     }
-
+//Research the .valueOf method on the Integer class. You will find that it can also be used to parse integers in different bases. Use this functionality to create two new methods, getBinary and getHex that will accept a string that is a number in binary or hexidecimal.
+//
+//
+//Enter a binary number: 111
+//Your number is 7
+//
+//Enter a hexidecimal number: 10
+//Your number is 16
 
     public int getHex(){
         String userInput = scan.next();
         try {
-            return Integer.valueOf(userInput, 16);
+            return Integer.valueOf(userInput,10);
         } catch (NumberFormatException e) {
             System.out.println("Please enter a valid hex value.");
             return getHex();
@@ -119,65 +130,17 @@ public class Input {
             System.out.println(e.toString());
             return getBinary(prompt);
         }
-    }
+
 
 }
 
 
 
+    }
 
 
 
 
-
-
-
-//package util;
-//
-//import java.util.Scanner;
-//
-//public class Input {
-//    private Scanner scanner;
-//
-//  public  Input(){
-//      scanner = new Scanner(System.in);
-//  }
-//
-//  public String getString() {
-//        return scanner.next();
-//
-//    }
-//    public String getString(String prompt) {
-//        System.out.print(prompt);
-//        return getString();
-//    }
-//
-//
-//    public   boolean yesNo() {
-//      String userInput = getString();
-//      if(userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes")) {
-//          return true;
-//      } else {
-//          return false;
-//      }
-//    }
-
-//    public int getInt(int min, int max) {
-//        System.out.println();
-//      return
-//    }
-//
-//    public int getInt() {
-//        return
-//    }
-//
-//    public double getDouble(double min, double max) {
-//        return
-//    }
-//
-//    public double getDouble() {
-//        return
-//    }
 
 
 
